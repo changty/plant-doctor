@@ -1,3 +1,7 @@
+h2 {
+    color: #2E7D32;
+}
+
 .basic-grey {
     display: block;
     margin: 0 auto;
@@ -75,19 +79,35 @@
     textarea{
         height:100px;
     }
-    .button {
-        background: #1976D2;
-        border: none;
+    .button, .button:active, .button:focus, .button:hover {
+        background: none;
+        border: 2px solid #A5D6A7;
         padding: 10px 25px 10px 25px;
-        color: #FFF;
-        box-shadow: 1px 1px 5px #B6B6B6;
+        color: #A5D6A7;
+        color: #66BB6A;
+        // box-shadow: 1px 1px 5px #B6B6B6;
         border-radius: 3px;
-        text-shadow: 1px 1px 1px #9E3F3F;
+        // text-shadow: 1px 1px 1px rgba(50,50,50, .8);
+        text-transform: uppercase; 
         cursor: pointer;
         width: 100%;
+        outline: 0; 
+        -webkit-outline: 0;
     }
-    .button:hover {
-        background: darken(#1976D2, 10%);
+    // .button:hover {
+    //     background: darken(#1976D2, 10%);
+    // }
+
+    .btn-success {
+        -webkit-animation: green 0.5s;
+        -moz-animation: green 0.5s;
+        animation: green 0.5s;
+    }
+
+    .btn-error {
+        -webkit-animation: red 0.5s;
+        -moz-animation: red 0.5s;
+        animation: red 0.5s;
     }
 }
 
@@ -109,4 +129,35 @@
         text-align: center; 
     }
 }
+
+
+@-webkit-keyframes green {
+    from {background: none}
+    to {background: #66BB6A; color: #fff;}
+}
+
+@-moz-keyframes green {
+    from {background: none}
+    to {background: #66BB6A; color: #fff}
+}
+
+@keyframes green {
+    from {background: none}
+    to {background: #66BB6A; color: #fff}
+}
+
+@-webkit-keyframes red {
+    from {background: none}
+    to {background: #E57373; color: #fff; border-color: #D32F2F}
+}
+
+@-moz-keyframes red {
+    from {background: none}
+    to {background: #E57373; color: #fff; border-color: #D32F2F}
+}
+
+@keyframes red {
+     from {background: none}    
+    to {background: #E57373; color: #fff; border-color: #D32F2F}
+ }
 

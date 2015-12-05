@@ -18,8 +18,20 @@ Template.addPlant.events({
 				engineId: engine,
 				name: name
 			}, function(err, result) {
-				if(!err) {
-					console.log("callback!");
+				if(err) {
+					$('.addPlant').addClass('btn-error');
+					setTimeout(function() {
+						$('.addPlant').removeClass('btn-error');
+
+					},1000);
+				}			
+				else {
+					$('.addPlant').addClass('btn-success');
+					setTimeout(function() {
+						$('.addPlant').removeClass('btn-success');
+
+					},1000);
+					console.log("success!");
 				}
 			});
 
@@ -27,6 +39,14 @@ Template.addPlant.events({
 			$('.engine').val('');
 			$('.plant-name').val('');
 
+		}
+
+		else {
+			$('.addPlant').addClass('btn-error');
+			setTimeout(function() {
+				$('.addPlant').removeClass('btn-error');
+
+			},1000);
 		}
 	},
 
