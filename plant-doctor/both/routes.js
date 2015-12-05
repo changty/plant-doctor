@@ -8,6 +8,12 @@ Router.route('/', function() {
 	name: 'home'
 });
 
+Router.route('/plant', function() {
+	this.render('plant');	
+}, {
+	name: 'plant'
+});
+
 Router.map(function() {
     this.route('dataFromSensors', {
         path: '/api/sendData',
