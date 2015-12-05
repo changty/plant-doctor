@@ -7,7 +7,15 @@
     font: 12px Georgia, "Times New Roman", Times, serif;
     color: #888;
     text-shadow: 1px 1px 1px #FFF;
-    // border:1px solid #E4E4E4;
+
+    > * {
+        margin-bottom: 15px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
      h1 {
         font-size: 25px;
         padding: 0px 0px 10px 40px;
@@ -39,11 +47,9 @@
         border-radius: 5px; 
         // color: #888;
         height: 30px;
-        margin-bottom: 16px;
-        margin-right: 6px;
-        margin-top: 2vh;
         outline: 0 none;
-        padding: 3px 3px 3px 5px;
+        padding: 0 5px;
+        line-height: 30px;
         width: 100%;
         font-size: 12px;
         line-height:15px;
@@ -70,7 +76,7 @@
         height:100px;
     }
     .button {
-        background: #E27575;
+        background: #1976D2;
         border: none;
         padding: 10px 25px 10px 25px;
         color: #FFF;
@@ -78,10 +84,10 @@
         border-radius: 3px;
         text-shadow: 1px 1px 1px #9E3F3F;
         cursor: pointer;
-        width: 100%
+        width: 100%;
     }
     .button:hover {
-        background: #CF7A7A
+        background: darken(#1976D2, 10%);
     }
 }
 

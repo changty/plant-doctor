@@ -1,9 +1,9 @@
 <template name="addPlant">
-	<h1>Add a new plant</h1>
+	<h2>Add a new plant</h2>
 	<div class="plant animated">
 		<img class="plant-image" src="/img/default_plant.svg" alt=""/>
 
-		<h2 class="name"></h2>
+		<h3 class="name"></h3>
 	</div>
 
 	<form class="basic-grey">
@@ -12,6 +12,8 @@
 			<option value="{{id}}">{{name}}</option>
 		{{/each}}
 		</select>
+
+		<input type="text" class="plant-name" placeholder="Name" />
 
 		<input type="text" class="engine" placeholder="Sensor ID" />
 

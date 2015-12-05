@@ -8,6 +8,10 @@
       #{$property}: #{$value};
 }
 
+* {
+	box-sizing: border-box;
+}
+
 body {
 	background: #F1F8E9;
 	font-family: "Open Sans";
@@ -37,13 +41,18 @@ header {
 	color: #fff;
 
 	h1 {
-		margin: 10px 0 10px 15px;
-		font-family: 'Raleway', sans-serif;
-		font-size: 34px;
-		line-height: 40px;
-		display: inline-block;
-		padding-left: 47px;
-		background: transparent url(/img/logo.png) no-repeat left center;
+
+		a {
+			display: block;
+			color: #fff;
+			margin: 10px 0 10px 15px;
+			font-family: 'Raleway', sans-serif;
+			font-size: 34px;
+			line-height: 40px;
+			display: inline-block;
+			padding-left: 47px;
+			background: transparent url(/img/logo.png) no-repeat left center;
+		}
 	}
 
 	#btn-mobile-nav {
@@ -104,7 +113,14 @@ header {
 }
 
 #main-content {
-	padding: 40px 0;
+	padding: 20px 0;
+
+	h2 {
+		margin: 0 0 20px;
+		text-align: center;
+		font-size: 22px;
+		font-weight: bold;
+	}
 }
 
 .hidden {

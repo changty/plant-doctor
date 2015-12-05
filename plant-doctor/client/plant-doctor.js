@@ -1,14 +1,11 @@
 if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('counter', 0);
-  Meteor.startup(function () {
-  });
 }
 
 Template.PlantDoctorTemplate.onRendered(function() {
 	// create navigation
 	var $nav = $('nav');
-	console.log('startup',$nav)
 	$nav.navigation({
 		gravity: 'push',
 		type: 'overlay',
@@ -17,4 +14,10 @@ Template.PlantDoctorTemplate.onRendered(function() {
   	$('#main-nav > ul').find('a').click(function() {
   		$nav.navigation('close');
   	});
+});
+
+Template.PlantDoctorTemplate.helpers({
+	myPlants: function() {
+		return MyPlant.find({}).fetch();
+	}
 });

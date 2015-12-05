@@ -92,13 +92,18 @@ Schema.MyPlant = new SimpleSchema({
 		type: Number
 	},
 
+	name: {
+		type: String,
+	    optional: true
+	},
+
 	owner: {
-	    type: String,
-	    autoValue: function(){
-			if (this.isInsert && (!this.isSet || this.value.length === 0)) {
-	    		return this.userId;
-	    	}
-	    },
+		type: String,
+		autoValue: function(){
+			if (this.isInsert) {
+				return this.userId;
+			}
+		},
 	    optional: true
 	},
 
@@ -122,6 +127,7 @@ Schema.MyPlant = new SimpleSchema({
 });
 
 
+MyPlant.attachSchema(Schema.MyPlant);
 Plant.attachSchema(Schema.Plant);
 Sensor.attachSchema(Schema.Sensor);
 
