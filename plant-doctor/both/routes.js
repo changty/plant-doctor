@@ -19,11 +19,12 @@ Router.map(function() {
             if(requestMethod === 'POST') {
 
 	           	// Data from a POST request
-	            var requestData = this.request.body;
+	            var data = this.request.body;
 
-	            console.log("request data", requestData);
+	            console.log("request data", data);
+	            console.log("senses: ", data[0].senses);
 
-	            
+
 
 	            // // Could be, e.g. application/xml, etc.
 	            // this.response.writeHead(200, {'Content-Type': 'text/html'});

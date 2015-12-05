@@ -1,29 +1,18 @@
 Schema = {};
 Collection = {}; 
 
-Device = Collection.Device = new Meteor.Collection('device');
+Sensor = Collection.Sensor = new Meteor.Collection('sensor');
 Plant = Collection.Plant = new Meteor.Collection('plant'); 
 
-Schema.Device = new SimpleSchema({
-	type: {
+Schema.Sensor = new SimpleSchema({
+	sensor: {
 		type: String
 	},
-	name: {
-		type: String
-	},
-	owner: {
-	    type: String,
-	    autoValue: function(){
-			if (this.isInsert && (!this.isSet || this.value.length === 0)) {
-	    		return this.userId;
-	    	}
-	    },
-	    optional: true
-	},
+
 	createdAt: {
 	  type: Date,
 	  autoValue: function() {
-	    if (this.isInsert) {
+	    if (this.isInsert) { 	
 	      return new Date;
 	    } else if (this.isUpsert) {
 	      return {$setOnInsert: new Date};
@@ -33,13 +22,8 @@ Schema.Device = new SimpleSchema({
 	  }
 	},
 
-	ip: {
-		type: String,
-		regEx: SimpleSchema.RegEx.IP
-	}
-
 });
 
 
-Device.attachSchema(Schema.Device);
+Sensor.attachSchema(Schema.Sensor);
 
