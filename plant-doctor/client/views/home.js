@@ -16,15 +16,5 @@ Template.home.helpers({
 	},
 	myPlants: function() {
 		return MyPlant.find({owner: Meteor.userId()});
-	},
-	getLuxDegrees: function() {
-		// replace with plant measurement value
-		var lux = 80;
-
-		// measure between 0 lux and 100 lux
-		var deg = 180 * (lux / 100);
-
-		// scale -90 -> 90
-		return deg - 90;
 	}
 });
