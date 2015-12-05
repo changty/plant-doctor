@@ -1,7 +1,43 @@
 
 
 <template name="plant">
-new Plant2<br>
+
+	<div class="plant-stats">
+		<div id="luminance">
+			<div id="luminance-inner">
+				<div id="measurement-stick" style="transform: rotate({{getLuxDegrees}}deg)"></div>
+			</div>
+		</div>
+		<div class="temperature">
+			<div class="tempmeter">
+				<span class="value"></span>
+			</div>
+
+		</div>
+		<div class="water">
+			<div class="plant-status">
+
+				<div class="wave-back"></div>
+
+				<div class="wave-front"></div>
+
+				<img class="plant-face" src="/img/plant1_small_happy.svg" alt="" />
+
+			</div>
+		</div>
+
+		<div class="plant-icons">
+			<div class="icon sun">
+				<i class="fa fa-sun-o red"></i>
+			</div>
+			<div class="icon water">
+				<i class="fa fa-tint orange"></i>
+			</div>
+			<div class="icon temp">
+				<i class="fa fa-tachometer green"></i>
+			</div>
+		</div>
+	</div>
 
 <br>
 Temperature: {{getTemperature}}<br>
@@ -9,7 +45,7 @@ Humidity: {{getHumidity}}<br>
 Light: {{getLight}}<br>
 Battery: {{getBattery}}<br>
 Air Pressure: {{getPressure}}<br><br>
-    {{#each getUptoDateDataForSpecificEngine}}
+<!--     {{#each getUptoDateDataForSpecificEngine}}
        {{engine}},{{sensor}},{{value}}<br>
-    {{/each}}
+    {{/each}} -->
 </template>
