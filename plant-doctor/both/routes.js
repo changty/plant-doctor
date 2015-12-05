@@ -21,14 +21,10 @@ Router.map(function() {
 	           	// Data from a POST request
 	            var data = this.request.body;
 
-	            console.log("request data", data);
-	            console.log("senses: ", data[0].senses);
-
-	            var engine  = data[0].engine; 
+	            var engine  = data[0].engine.pId; 
 	            var senses = data[0].senses; 
 	            for(var i=0; i<senses.length; i++) {
-	            	var sensor = sidToSensorName(senses[i]); 
-	            	console.log("Saving...", engine,  sensor);
+	            	var sensor = sidToSensorName(senses[i].sId); 
 		            Sensor.insert({
 		            	engine: engine,
 		            	sensor: sensor.name,
@@ -39,20 +35,13 @@ Router.map(function() {
 
 	            }
 
-
-
-
-
-	            // // Could be, e.g. application/xml, etc.
-	            // this.response.writeHead(200, {'Content-Type': 'text/html'});
-	            // this.response.end('<html><body>Your request was a ' + requestMethod + '</body></html>');
-
             }
 
         }
     });
 });
 
+// Helper function to map sId to name and unit
 function sidToSensorName(sid) {
 	switch(sid) {
 		case '0x00060100': return {name: 'Temperature', unit: 'C'}; 
