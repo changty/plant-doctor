@@ -161,3 +161,156 @@ h2 {
     to {background: #E57373; color: #fff; border-color: #D32F2F}
  }
 
+ .plant-status {
+    position: relative;
+    overflow: hidden;
+    display:block; 
+    margin:auto; 
+    width: 50vmin; 
+    height: 50vmin; 
+    border-radius: 100%; 
+    background: #fff;
+
+    .plant-face {
+        position:absolute; 
+        top: 12.5vmin;
+        left: 12.5vmin;
+        display: block; 
+        text-align:center;
+        width: 25vmin; 
+        height: 25vmin;
+        z-index: 100; 
+    }
+
+
+    .wave-front {
+        opacity: 0.6;
+        position: absolute; 
+        bottom: -10vmin; 
+        left:0; 
+        width: 50vmin; 
+        height: 100%; 
+        background: url(/img/wave.svg) repeat-x bottom left;
+        background-size: 50px auto;
+        -webkit-animation: scroll 25s linear infinite, upDown 2.5s ease-in-out infinite;
+        animation: scroll 25s linear infinite, upDown 2.5s ease-in-out infinite;
+        z-index: 50; 
+    }
+
+    .wave-back {
+        opacity: 0.5; 
+        position: absolute; 
+        bottom: -10vmin; 
+        left:0; 
+        width: 50vmin; 
+        height: 100%; 
+        background: url(/img/wave.svg) repeat-x bottom left;
+        background-size: 50px auto;
+        -webkit-animation: scroll 30s linear infinite, upDown2 2.5s ease-in-out infinite;
+        animation: scroll 30s linear infinite, upDown2 2.5s ease-in-out infinite;
+        z-index: 1;
+    }
+
+
+ }
+
+.plant-icons {
+    display: inline-block; 
+    margin-left: 14vmin;
+
+    .icon {
+        background: #fff; 
+        border: 1px solid #fff; 
+        border-radius: 10vmin;
+        // width: 20vmin; 
+        // height: 20vmin; 
+        margin: 2vmin; 
+        float:left;
+        display:inline; 
+        box-shadow: 0px 1px 3px rgba(50,50,50, .1);
+
+        i {
+            padding:0; 
+            margin: 0;
+            width: 20vmin; 
+            height: 20vmin;
+            line-height: 20vmin; 
+            text-align:center; 
+            color: #aaa;
+            font-size: 8vmin;
+        }
+
+        .red {
+            color: #EF9A9A !important;
+        }
+
+        .orange {
+            color: #FFB74D !important;
+        }
+
+        .green {
+            color: #66BB6A !important;
+        }
+    }
+   
+
+}
+
+@-webkit-keyframes upDown {
+  0%   { bottom: -0.5vmin; }
+  50%  { bottom: -1vmin;}
+  100% { bottom: -0.5vmin; }
+}
+@-moz-keyframes upDown {
+  0%   { bottom: -0.5vmin; }
+  50%  { bottom: -1vmin;}
+  100% { bottom: -0.5vmin; }
+}
+@-o-keyframes upDown {
+  0%   { bottom: -0.5vmin; }
+  50%  { bottom: -1vmin;}
+  100% { bottom: -0.5vmin; }
+}
+@keyframes upDown {
+  0%   { bottom: -0.5vmin; }
+  50%  { bottom: -1vmin;}
+  100% { bottom: -0.5vmin; }
+}
+
+@-webkit-keyframes scroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+@-moz-keyframes scroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+@-o-keyframes scroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes scroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+
+@-webkit-keyframes upDown2 {
+  0%   { bottom: -1vmin; }
+  50%  { bottom: -1.5vmin;}
+  100% { bottom: -1vmin; }
+}
+@-moz-keyframes upDown2 {
+  0%   { bottom: -1vmin; }
+  50%  { bottom: -1.5vmin;}
+  100% { bottom: -1vmin; }
+}
+@-o-keyframes upDown2 {
+  0%   { bottom: -1vmin; }
+  50%  { bottom: -1.5vmin;}
+  100% { bottom: -1vmin; }
+}
+@keyframes upDown2 {
+  0%   { bottom: -1vmin; }
+  50%  { bottom: -1.5vmin;}
+  100% { bottom: -1vmin; }
+}
