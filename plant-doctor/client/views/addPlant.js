@@ -10,15 +10,20 @@ Template.addPlant.events({
 
 		var plant = $('.plant-select').val(); 
 		var engine = $('.engine').val(); 
-		var name = $('.name').val(); 
+		var name = $('.plant-name').val(); 
 
 		if(plant != '' && engine != '' && name != '') {
 			MyPlant.insert({
 				plantId: plant,
-				engineId: engine
+				engineId: engine,
+				name: name
+			}, function(err, result) {
+				if(!err) {
+					console.log("callback!");
+				}
 			});
 
-			$('.plant-select').val('1'); 
+			$('.plant-select').val(1); 
 			$('.engine').val('');
 			$('.plant-name').val('');
 
