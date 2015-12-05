@@ -4,15 +4,14 @@
 
 	<div class="plant-stats">
 		<div id="luminance">
-			<div id="luminance-inner">
-				<div id="measurement-stick" style="transform: rotate({{getLuxDegrees}}deg)"></div>
+			<div class="lummeter">
+				<span class="lumvalue"></span>
 			</div>
 		</div>
 		<div class="temperature">
 			<div class="tempmeter">
 				<span class="value"></span>
 			</div>
-
 		</div>
 		<div class="water">
 			<div class="plant-status">
@@ -30,7 +29,7 @@
 			<div class="icon sun">
 				<i class="fa fa-sun-o red"></i>
 			</div>
-			<div class="icon water">
+			<div class="icon watericon">
 				<i class="fa fa-tint orange"></i>
 			</div>
 			<div class="icon temp">
@@ -39,12 +38,12 @@
 		</div>
 	</div>
 
-<br>
-Temperature: {{getTemperature}}<br>
+<!-- <br> -->
+<!-- Temperature: {{getTemperature}}<br>
 Humidity: {{getHumidity}}<br>
 Light: {{getLight}}<br>
 Battery: {{getBattery}}<br>
-Air Pressure: {{getPressure}}<br><br>
+Air Pressure: {{getPressure}}<br><br> -->
 <!--     {{#each getUptoDateDataForSpecificEngine}}
        {{engine}},{{sensor}},{{value}}<br>
     {{/each}} -->
