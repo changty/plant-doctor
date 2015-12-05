@@ -20,9 +20,14 @@ Router.map(function() {
 
 	           	// Data from a POST request
 	            var requestData = this.request.body;
-	            // Could be, e.g. application/xml, etc.
-	            this.response.writeHead(200, {'Content-Type': 'text/html'});
-	            this.response.end('<html><body>Your request was a ' + requestMethod + '</body></html>');
+
+	            console.log("request data", requestData);
+
+	            
+
+	            // // Could be, e.g. application/xml, etc.
+	            // this.response.writeHead(200, {'Content-Type': 'text/html'});
+	            // this.response.end('<html><body>Your request was a ' + requestMethod + '</body></html>');
 
             }
 
