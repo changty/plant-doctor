@@ -4,7 +4,12 @@
 new Plant2<br>
 
 <br>
-    {{#each specificEngine}}
+Temperature: {{getTemperature}}<br>
+Humidity: {{getHumidity}}<br>
+Light: {{getLight}}<br>
+Battery: {{getBattery}}<br>
+Air Pressure: {{getPressure}}<br><br>
+    {{#each getUptoDateDataForSpecificEngine}}
        {{engine}},{{sensor}},{{value}}<br>
     {{/each}}
 </template>
