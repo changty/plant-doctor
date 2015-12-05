@@ -1,3 +1,7 @@
 <template name="home">
-home
+	{{> loginButtons}}
+
+    {{#if currentUser}}
+		User ({{currentUser.username}}) Now logged on
+    {{/if}}
 </template>
