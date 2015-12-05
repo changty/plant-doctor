@@ -11,13 +11,13 @@ Template.PlantDoctorTemplate.onRendered(function() {
 		type: 'overlay',
 		maxWidth: '10000px'
 	});
-  	$('#main-nav > ul').find('a').click(function() {
+  	$('#main-nav > ul, header h1').find('a').click(function() {
   		$nav.navigation('close');
   	});
 });
 
 Template.PlantDoctorTemplate.helpers({
 	myPlants: function() {
-		return MyPlant.find({}).fetch();
+		return MyPlant.find({owner: Meteor.userId()}).fetch();
 	}
 });

@@ -1,6 +1,19 @@
 <template name="home">
+
     {{#if currentUser}}
-		User ({{currentUser.username}}) Now logged on
+    	<h2>Welcome {{currentUser.username}}!</h2>
+
+		{{#if userHasPlants }}
+			you have plants
+    	{{else}}
+    		<p>It seems like you don't have any plants yet! Go ahead and add one now.</p>
+    		<div class="template-in-template">
+    			{{ >addPlant}}
+    		</div>
+    	{{/if}}
+    {{else}}
+    	<h2>Welcome!</h2>
+		{{> loginButtons}}
     {{/if}}
 
 </template>

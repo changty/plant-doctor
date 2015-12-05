@@ -4,3 +4,11 @@ Template.home.onRendered(function() {
 		passwordSignupFields: "USERNAME_ONLY"
 	});
 });
+
+
+
+Template.home.helpers({
+	userHasPlants: function() {
+		return MyPlant.find({owner: Meteor.userId()}).count() > 0 ? true : false;
+	}
+});
