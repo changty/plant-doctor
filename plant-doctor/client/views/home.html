@@ -4,7 +4,22 @@
     	<h2>Welcome {{currentUser.username}}!</h2>
 
 		{{#if userHasPlants }}
-			you have plants
+			<p>you have plants</p>
+
+			{{#if moreThanOnePlant }}
+				<ul>
+				{{#each myPlants}}
+					<li><a href="">{{name}}</a></li>
+				{{/each}}
+				</ul>
+    		{{else}}
+    			<p>you have just one plant, print it here</p>
+    			<div id="luminance">
+    				<div id="luminance-inner">
+    					<div id="measurement-stick" style="transform: rotate({{getLuxDegrees}}deg)"></div>
+    				</div>
+    			</div>
+			{{/if}}
     	{{else}}
     		<p>It seems like you don't have any plants yet! Go ahead and add one now.</p>
     		<div class="template-in-template">
