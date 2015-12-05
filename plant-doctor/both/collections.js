@@ -3,6 +3,8 @@ Collection = {};
 
 Sensor = Collection.Sensor = new Meteor.Collection('sensor');
 Plant = Collection.Plant = new Meteor.Collection('plant'); 
+MyPlant = Collection.MyPlant = new Meteor.Collection('myplant'); 
+
 
 Schema.Sensor = new SimpleSchema({
 	engine: {
@@ -63,6 +65,40 @@ Schema.Plant = new SimpleSchema({
 	},
 
 	light: {
+		type: String
+	},
+
+	createdAt: {
+	  type: Date,
+	  autoValue: function() {
+	    if (this.isInsert) { 	
+	      return new Date;
+	    } else if (this.isUpsert) {
+	      return {$setOnInsert: new Date};
+	    } else {
+	      this.unset();
+	    }
+	  }
+	},
+
+});
+
+Schema.MyPlant = new SimpleSchema({
+	plantId: {
+		type: Number
+	},
+
+	owner: {
+	    type: String,
+	    autoValue: function(){
+			if (this.isInsert && (!this.isSet || this.value.length === 0)) {
+	    		return this.userId;
+	    	}
+	    },
+	    optional: true
+	},
+
+	engineId: {
 		type: String
 	},
 
