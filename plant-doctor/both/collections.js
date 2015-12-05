@@ -41,6 +41,47 @@ Schema.Sensor = new SimpleSchema({
 
 });
 
+Schema.Plant = new SimpleSchema({
+	id: {
+		type: String
+	},
 
+	name: {
+		type: String
+	},
+
+	watering: {
+		type: String
+	},
+
+	misting: {
+		type: String
+	},
+
+	temperature: {
+		type: String
+	},
+
+	light: {
+		type: String
+	},
+
+	createdAt: {
+	  type: Date,
+	  autoValue: function() {
+	    if (this.isInsert) { 	
+	      return new Date;
+	    } else if (this.isUpsert) {
+	      return {$setOnInsert: new Date};
+	    } else {
+	      this.unset();
+	    }
+	  }
+	},
+
+});
+
+
+Sensor.attachSchema(Schema.Plant);
 Sensor.attachSchema(Schema.Sensor);
 
