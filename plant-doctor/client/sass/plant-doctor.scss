@@ -18,6 +18,12 @@ body {
 a {
 	@include vendor(transition, color 0.3s);
 	@include vendor(transition, background-color 0.3s);
+	text-decoration: none;
+	color: #1B5E20;
+
+	&:hover {
+		color: darken(#1B5E20, 10%);
+	}
 }
 
 .container {
@@ -26,12 +32,12 @@ a {
 }
 
 header {
-	padding: 0px 0;
+	padding: 0 0;
 	background: #43A047;
 	color: #fff;
 
 	h1 {
-		margin: 10px 0;
+		margin: 10px 0 10px 15px;
 		font-family: 'Raleway', sans-serif;
 		font-size: 34px;
 		line-height: 40px;
@@ -48,11 +54,53 @@ header {
 		text-indent: -9001px;
 		float: right;
 		cursor: pointer;
+		padding: 0;
+
+		&:after {
+			display: none;
+		}
 
 		&:hover {
 			background-color: darken(#43A047, 10%);
 		}
 	}
+}
+
+#main-nav {
+	> .header {
+		padding: 15px 15px;
+
+		h2 {
+			font-size: 18px;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+	}
+
+	> ul {
+		border-top: 1px solid #eee;
+
+		> li {
+			border-bottom: 1px solid #eee;
+
+			> a {
+				display: block;
+				line-height: 40px;
+				padding: 0 15px;
+				font-weight: bold;
+
+				&:before {
+					content: '+';
+					padding-right: 5px;
+				}
+			}
+		}
+	}
+}
+
+.fs-navigation-overlay-content:before,
+#main-nav {
+	top: 60px;
 }
 
 #main-content {

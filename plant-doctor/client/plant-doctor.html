@@ -6,8 +6,15 @@
 <body>
 </body>
 <template name="PlantDoctorTemplate">
-	<nav class="hidden">
-		{{> loginButtons}}
+	<nav id="main-nav" class="fs-navigation fs-navigation-enabled fs-navigation-overlay-left-nav navigation-menu" data-navigation-handle="#btn-mobile-nav" data-navigation-content="#main-content">
+		<div class="header">
+			<h2>Welcome!</h2>
+			{{> loginButtons}}
+		</div>
+
+		<ul>
+			<li><a href={{pathFor route='addPlant'}}>Add a plant</a></li>
+		</ul>
 	</nav>
 
 	<header>
@@ -22,11 +29,5 @@
 			{{> yield}}
 		</div>
 	</div>
-
-	<footer>
-		<div class="container">
-			footer
-		</div>
-	</footer>
 
 </template>
