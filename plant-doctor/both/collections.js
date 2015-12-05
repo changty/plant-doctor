@@ -82,6 +82,6 @@ Schema.Plant = new SimpleSchema({
 });
 
 
-Sensor.attachSchema(Schema.Plant);
+Plant.attachSchema(Schema.Plant);
 Sensor.attachSchema(Schema.Sensor);
 

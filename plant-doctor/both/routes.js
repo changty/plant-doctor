@@ -17,7 +17,6 @@ Router.map(function() {
             var requestMethod = this.request.method;
             console.log("Request method:", requestMethod); 
             if(requestMethod === 'POST') {
-
 	           	// Data from a POST request
 	            var data = this.request.body;
 
@@ -25,13 +24,14 @@ Router.map(function() {
 	            var senses = data[0].senses; 
 	            for(var i=0; i<senses.length; i++) {
 	            	var sensor = sidToSensorName(senses[i].sId); 
+
 		            Sensor.insert({
 		            	engine: engine,
 		            	sensor: sensor.name,
 		            	unit: sensor.unit, 
 		            	value: senses[i].val,
 		            	ts: senses[i].ts
-		            });
+		            }, {validate: false});
 
 	            }
 
