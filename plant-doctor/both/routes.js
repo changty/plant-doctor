@@ -15,11 +15,13 @@ Router.route('/addPlant', function() {
 });
 
 
-Router.route('/plant', function() {
-	this.render('plant');	
-}, {
+Router.route('/plant/:engineId', function() {
+	this.render('plant', {data : {engineId: this.params.engineId}});	
+},
+{
 	name: 'plant'
 });
+
 
 Router.map(function() {
     this.route('dataFromSensors', {
