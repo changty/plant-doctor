@@ -86,6 +86,11 @@
 }
 
 .plant {
+
+    #yourElement {
+      -vendor-animation-duration: .2s; 
+   }
+
     .plant-image {
         display: block; 
         text-align:center;

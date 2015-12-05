@@ -24,17 +24,26 @@ Template.addPlant.events({
 	},
 
 	'change .plant-select': function(e) {
-		$('.name').html($(".plant-select option:selected").text());
-
 		var img = Plant.find({id: $(".plant-select option:selected").val()}, {fields: {img: 1}}).fetch(); 
-		if(img[0].img) {
-			$('.plant-image').attr('src', img[0].img); 
-			// $('.plant-image').css({'width': '30vmin', 'height': '30vmin'});
-		} 
-		else {
-			$('.plant-image').attr('src', '/img/default_plant.svg'); 
-			// $('.plant-image').css({'width': '30vmin', 'height': '30vmin'});
-		}
+
+		$('.plant').addClass('fadeOutLeft');
+		$('.plant').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+
+			$('.name').html($(".plant-select option:selected").text());
+
+			if(img[0].img) {
+				$('.plant-image').attr('src', img[0].img); 
+				// $('.plant-image').css({'width': '30vmin', 'height': '30vmin'});
+			} 
+			else {
+				$('.plant-image').attr('src', '/img/default_plant.svg'); 
+				// $('.plant-image').css({'width': '30vmin', 'height': '30vmin'});
+			}
+			$('.plant').removeClass('fadeOutLeft');
+			$('.plant').addClass('fadeInRight');
+		});
+
+
 	}
 });
 
