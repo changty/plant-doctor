@@ -5,8 +5,25 @@ Sensor = Collection.Sensor = new Meteor.Collection('sensor');
 Plant = Collection.Plant = new Meteor.Collection('plant'); 
 
 Schema.Sensor = new SimpleSchema({
+	engine: {
+		type: String
+	},
+
 	sensor: {
 		type: String
+	},
+
+	ts: {
+		type: String
+	},
+
+	unit: {
+		type: String
+	},
+
+	value: {
+		type: Number,
+		decimal: true
 	},
 
 	createdAt: {
