@@ -1,18 +1,20 @@
 <template name="addPlant">
+	<h1>Add a new plant</h1>
 	<div class="plant">
-		<img class="hidden plant-image" src="" alt=""/>
+		<img class="plant-image" src="/img/default_plant.svg" alt=""/>
 
 		<h2 class="name"></h2>
 	</div>
 
-	<form>
-		
-		<select class="plant">
+	<form class="basic-grey">
+		<select class="plant-select">
 		{{#each plant}}
 			<option value="{{id}}">{{name}}</option>
 		{{/each}}
 		</select>
 
 		<input type="text" class="engine" placeholder="Sensor ID" />
+
+		<button class="button addPlant" type="submit">Save</button>
 	</form>
 </template>
