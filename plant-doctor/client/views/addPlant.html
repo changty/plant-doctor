@@ -1,0 +1,18 @@
+<template name="addPlant">
+	<div class="plant">
+		<img class="hidden plant-image" src="" alt=""/>
+
+		<h2 class="name"></h2>
+	</div>
+
+	<form>
+		
+		<select class="plant">
+		{{#each plant}}
+			<option value="{{id}}">{{name}}</option>
+		{{/each}}
+		</select>
+
+		<input type="text" class="engine" placeholder="Sensor ID" />
+	</form>
+</template>

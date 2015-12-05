@@ -8,6 +8,13 @@ Router.route('/', function() {
 	name: 'home'
 });
 
+Router.route('/addPlant', function() {
+	this.render('addPlant');	
+}, {
+	name: 'addPlant'
+});
+
+
 Router.route('/plant', function() {
 	this.render('plant');	
 }, {

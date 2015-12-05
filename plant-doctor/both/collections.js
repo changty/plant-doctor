@@ -68,6 +68,10 @@ Schema.Plant = new SimpleSchema({
 		type: String
 	},
 
+	img: {
+		type: String,
+		optional: true
+	},
 	createdAt: {
 	  type: Date,
 	  autoValue: function() {

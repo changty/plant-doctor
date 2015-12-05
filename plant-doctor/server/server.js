@@ -1,8 +1,9 @@
 Meteor.startup(function () {
 	var plants = {};
 	plants = JSON.parse(Assets.getText("plants.json"));
-	console.log("Plants json: ", plants);
-	console.log("Plant count: ", Plant.find().count());
+	// console.log("Plants json: ", plants);
+	// console.log("Plant count: ", Plant.find().count());
+
 	if(Plant.find().count() < plants.length) {
 		// Remove all plants from db
 		Plant.remove({});
@@ -16,7 +17,8 @@ Meteor.startup(function () {
 				watering: plant.watering,
 				misting: plant.misting, 
 				temperature: plant.temperature,
-				light: plant.light
+				light: plant.light,
+				img: plant.img || ''
 			});
 		}
 
