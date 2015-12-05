@@ -1,12 +1,62 @@
 @import "jeet/jeet";
+@mixin vendor($property, $value, $vendors: webkit moz ms o) {
+      @if $vendors {
+        @each $vendor in $vendors {
+          #{"-" + $vendor + "-" + $property}: #{$value};
+        }
+      }
+      #{$property}: #{$value};
+}
 
 body {
 	background: #F1F8E9;
+	font-family: "Open Sans";
+	font-size: 16px;
+	line-height: 1.1;
+}
+
+a {
+	@include vendor(transition, color 0.3s);
+	@include vendor(transition, background-color 0.3s);
 }
 
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
+}
+
+header {
+	padding: 0px 0;
+	background: #43A047;
+	color: #fff;
+
+	h1 {
+		margin: 10px 0;
+		font-family: 'Raleway', sans-serif;
+		font-size: 34px;
+		line-height: 40px;
+		display: inline-block;
+		padding-left: 47px;
+		background: transparent url(/img/logo.png) no-repeat left center;
+	}
+
+	#btn-mobile-nav {
+		width: 60px;
+		height: 60px;
+		display: block;
+		background: transparent url(/img/hamburger.png) no-repeat center center;
+		text-indent: -9001px;
+		float: right;
+		cursor: pointer;
+
+		&:hover {
+			background-color: darken(#43A047, 10%);
+		}
+	}
+}
+
+#main-content {
+	padding: 40px 0;
 }
 
 .hidden {
