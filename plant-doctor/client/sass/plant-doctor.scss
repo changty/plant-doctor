@@ -1,3 +1,14 @@
+@import "jeet/jeet";
+
 body {
-	background: red;
+	background: #F1F8E9;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.hidden {
+	display: none;
 }
