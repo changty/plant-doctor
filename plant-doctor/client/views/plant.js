@@ -43,16 +43,20 @@ Template.plant.onRendered(function(){
 });
 
 function getter(json, count){
+	var initializing = true;
 	var query;
 	Tracker.autorun(function () {
 		query = Sensor.find(json);
 		query.observeChanges({
 			added: function(id, fields) {
-				return calculateAverageOf(query, count);
+				if(initializing)
+					return 0;
+				else
+					return calculateAverageOf(query, count);
 			}
 		});
 	});
-	
+	initializing = false;
 	return calculateAverageOf(query, count);
 }
 
