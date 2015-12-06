@@ -165,6 +165,21 @@ Template.plant.helpers({
 	}
 });
 
+Template.plant.events({
+	'click .icon.sun': function() {
+		var avg = getter({engine: this.engineId, sensor: "light"},3);		
+		showDialog('Sun light', '<h3>At the moment I\'m getting ' + avg +' lux of light</h3><br /> <p>The big books says that my light condition should be ' + this.plantData.light + '</p>');
+	},
+	'click .icon.watericon': function() {
+		var avg = getter({engine: this.engineId, sensor: "Humidity"},3);		
+		showDialog('Water', '<h3>At the moment my humidity is ' + avg +' %.</h3><br /> <p>The big books says that my watering condition should be ' + this.plantData.watering+ ' and misting should be ' + this.plantData.misting + '</p>');
+	},
+	'click .icon.temp': function() {
+		var avg =getter({engine: this.engineId, sensor: "Temperature"},3);		 
+		showDialog('Temperature', '<h3>At the moment the temperature is ' + avg +'degreees of Celsius.</h3><br /> <p>The big books says that my temperature condition should be ' + this.plantData.temperature + '</p>');
+	},
+});
+
 Template.plant.onRendered(function(){
 });
 
