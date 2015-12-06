@@ -135,7 +135,6 @@ header {
 		margin: 0 0 20px;
 		text-align: center;
 		font-size: 22px;
-		font-weight: bold;
 	}
 }
 
@@ -193,6 +192,10 @@ header {
 
 #main-nav {
 	z-index: 200;
+}
+
+.plant-stats {
+	padding-bottom: 50px;
 }
 
 .plant-row {
@@ -344,12 +347,6 @@ header {
 	opacity: 0;
 	transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
 
-	&.show {
-		visibility: visible;
-		opacity: 1;
-		transform: translateY(0px);
-	}
-
 	&:before {
 		content: '';
 		display: block;
@@ -369,6 +366,8 @@ header {
 		position: relative;
 		border-radius: 5px;
 		overflow: hidden;
+		transition: transform 0.5s;
+		transform: translateY(-100px);
 
 		.contents {
 			padding: 15px;
@@ -391,6 +390,16 @@ header {
 				color: #fff;
 				display: block;
 			}
+		}
+	}
+
+	&.show {
+		visibility: visible;
+		opacity: 1;
+		transform: translateY(0px);
+
+		#dialog-inner {
+			transform: translateY(0);
 		}
 	}
 }
