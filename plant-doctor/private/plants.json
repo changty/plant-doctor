@@ -5,7 +5,8 @@
 		"watering": "slightly_moist",
 		"misting": "no_misting",
 		"temperature": "warm",
-		"light": "bright_light"
+		"light": "bright_light",
+		"img": "/img/plant1_medium.svg"
 	},
 	{
 		"id": 2,
@@ -13,7 +14,8 @@
 		"watering": "slightly_moist",
 		"misting": "no_misting",
 		"temperature": "warm",
-		"light": "half_shade"
+		"light": "half_shade",
+		"img": "/img/plant3_medium.svg"
 	},
 	{
 		"id": 3,
@@ -21,7 +23,8 @@
 		"watering": "keep_moist",
 		"misting": "every_3_days",
 		"temperature": "constantly_warm",
-		"light": "half_shade"
+		"light": "half_shade",
+		"img": "/img/plant2_medium.svg"
 	}
 	
 ]
