@@ -6,20 +6,20 @@ Template.plant.helpers({
 		return Sensor.find({engine: this.engineId}).fetch();
 	},
 	getUptoDateDataForSpecificEngine: function(){
-		console.log("uptodate data");
+		// console.log("uptodate data");
 		var that = this;
 		var query;
 		Tracker.autorun(function () {
-			console.log("engine id ",that.engineId);
-			console.log("autorun",Sensor.find({engine: that.engineId}).fetch());
+			// console.log("engine id ",that.engineId);
+			// console.log("autorun",Sensor.find({engine: that.engineId}).fetch());
 			query = Sensor.find({engine: that.engineId});
 			query.observeChanges({
 				added: function(id, fields) {
-					console.log("Added ",id,fields);
+					// console.log("Added ",id,fields);
 				}
 			});
 		});
-		console.log("query is ", query);
+		// console.log("query is ", query);
 		return query.fetch();
 	},
 	getGraphTemperature: function(){
@@ -99,7 +99,7 @@ Template.plant.onRendered(function(){
 });
 
 function getter(json, count){
-	console.log("json", json);
+	// console.log("json", json);
 	var initializing = true;
 	var query;
 	Tracker.autorun(function () {
@@ -120,7 +120,7 @@ function getter(json, count){
 function calculateAverageOf(query, elements){
 	var list = query.fetch();
 	list.sort(function(a,b){return b.ts-a.ts});
-	console.log("length ", list.length);
+	// console.log("length ", list.length);
 	if(list.length < 1)
 		return 0;
 						
@@ -129,6 +129,6 @@ function calculateAverageOf(query, elements){
 	for(var i=0; i< count;i++){
 		result += list[i].value;
 	}
-	console.log("result "+result);
+	// console.log("result "+result);
 	return result/count;
 }

@@ -18,10 +18,20 @@ Meteor.startup(function () {
 				misting: plant.misting, 
 				temperature: plant.temperature,
 				light: plant.light,
-				img: plant.img || ''
+				img: plant.img || '',
+				humidityMin: plant.humidityMin,
+				humidityMax: plant.humidityMax, 
+				lightMin: plant.lightMin,
+				lightMax: plant.lightMax,
+				tempMin: plant.tempMin, 
+				tempMax: plant.tempMax
 			});
 		}
 
  	}
 });
 
+
+Meteor.publish("plants", function () {
+return Plant.find();
+});

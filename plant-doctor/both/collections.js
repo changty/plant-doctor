@@ -85,6 +85,25 @@ Schema.Plant = new SimpleSchema({
 	  }
 	},
 
+	humidityMin: {
+		type: Number
+	}, 
+	humidityMax: {
+		type: Number
+	},
+	lightMin: {
+		type: Number
+	},
+	lightMax: {
+		type: Number
+	},
+	tempMin: {
+		type: Number
+	},
+	tempMax: {
+		type: Number
+	}
+
 });
 
 Schema.MyPlant = new SimpleSchema({

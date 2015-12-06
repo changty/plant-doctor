@@ -1,4 +1,6 @@
 if (Meteor.isClient) {
+	Meteor.subscribe('plants');
+
   // counter starts at 0
   Session.setDefault('counter', 0);
 }

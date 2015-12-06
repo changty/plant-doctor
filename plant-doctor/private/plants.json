@@ -6,7 +6,13 @@
 		"misting": "no_misting",
 		"temperature": "warm",
 		"light": "bright_light",
-		"img": "/img/plant1_medium.svg"
+		"img": "/img/plant1_medium.svg",
+		"humidityMin": 10,
+		"humidityMax": 30,
+		"lightMin": 2000,
+		"lightMax": 25000,
+		"tempMin": 20,
+		"tempMax": 30
 	},
 	{
 		"id": 2,
@@ -15,7 +21,13 @@
 		"misting": "no_misting",
 		"temperature": "warm",
 		"light": "half_shade",
-		"img": "/img/plant3_medium.svg"
+		"img": "/img/plant3_medium.svg",
+		"humidityMin": 30,
+		"humidityMax": 50,
+		"lightMin": 200,
+		"lightMax": 5000,
+		"tempMin": 20,
+		"tempMax": 30
 	},
 	{
 		"id": 3,
@@ -24,7 +36,13 @@
 		"misting": "every_3_days",
 		"temperature": "constantly_warm",
 		"light": "half_shade",
-		"img": "/img/plant2_medium.svg"
+		"img": "/img/plant2_medium.svg",
+		"humidityMin": 50,
+		"humidityMax": 90,
+		"lightMin": 200,
+		"lightMax": 5000,
+		"tempMin": 25,
+		"tempMax": 35
 	}
 	
 ]
