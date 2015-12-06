@@ -17,9 +17,7 @@ Router.route('/addPlant', function() {
 
 Router.route('/plant/:engineId', function() {
 	var engine = this.params.engineId + ''; 
-	console.log("engine: ", engine);
 	var plant = MyPlant.find({'engineId': engine}).fetch(); 
-	console.log("plant", plant);
 	var plantId = plant[0].plantId + ''; 
 	var plantData = Plant.find({'id': plantId}).fetch()[0];
 

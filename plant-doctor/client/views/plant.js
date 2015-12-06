@@ -67,6 +67,13 @@ Template.plant.helpers({
 		else {
 			return '0%'; 
 		}
+		console.log(this.plantData);
+		if(avg > this.plantData.lightMax || avg < this.plantData.lightMin ) {
+			$('.sun i').addClass('red'); 
+		}
+		else {
+			$('.sun i').addClass('green'); 
+		}
 
 	},
 	getGraphTemperature: function(){
