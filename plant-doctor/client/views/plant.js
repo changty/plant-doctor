@@ -1,3 +1,5 @@
+
+var dep = new Tracker.Dependency(); 
 Template.plant.helpers({
 	sensorData: function(){
 		return Sensor.find().fetch();
@@ -26,26 +28,35 @@ Template.plant.helpers({
 		return query.fetch();
 	},
 	plantFace: function() {
+		dep.depend(); 
+		console.log("plantfaceeeee");
 		var img = this.plantData.img;
-		var format = '.'+img.split(".")[1];
+		var format = '.' + img.split(".")[1];
 		img = img.split(".")[0]; 
 
+		// quick and ugly fix
+		img = img.replace("2", "1"); 
+		img = img.replace("3", "1"); 
 
-		var count = $('.fa.red').length
+		var c = $('.fa.red').length
+		console.log("plantface: ", img, c);
 
-		if(count === 0) {
+		if(c === 0) {
 			return img + "_happy" + format; 
 		} 
-		else if (count === 1) {
+		else if (c === 1) {
 			return img + "_serious" + format; 
 		}
-		else if (count === 2) {
+		else if (c === 2) {
 			return img + "_sad" + format; 
 		}
-		else if (count === 3) {
+		else if (c === 3) {
 			return img + "_xx" + format; 
 		}
-		console.log("plantface: ", img);
+		else {
+			return img + "_happy" + format; 
+
+		}
 		return img;  
 
 	},
@@ -58,7 +69,7 @@ Template.plant.helpers({
 	lightStatus: function() {
 		var avg = getter({engine: this.engineId, sensor: "light"},3);		
 		console.log("light avg", avg);
-		
+		dep.changed(); 
 		if(avg > this.plantData.lightMax || avg < this.plantData.lightMin ) {
 			return 'red'; 
 		}
@@ -68,6 +79,7 @@ Template.plant.helpers({
 	},
 	humidityStatus: function() {
 		var avg = getter({engine: this.engineId, sensor: "Humidity"},3);		
+		dep.changed(); 
 		if(avg > this.plantData.humidityMax || avg < this.plantData.humidityMin ) {
 			return 'red'; 
 		}
@@ -77,6 +89,7 @@ Template.plant.helpers({
 	},
 	tempStatus: function() {
 		var avg = getter({engine: this.engineId, sensor: "Temperature"},3);		
+		dep.changed(); 
 		if(avg > this.plantData.tempMax || avg < this.plantData.tempMin ) {
 			return 'red'; 
 		}
@@ -87,15 +100,6 @@ Template.plant.helpers({
 	getGraphLight: function(){
 		var avg = getter({engine: this.engineId, sensor: "light"},3);		
 		console.log("light avg", avg);
-		
-		if(avg > this.plantData.lightMax || avg < this.plantData.lightMin ) {
-			console.log("red alert");
-			$('.sun i').addClass('red'); 
-		}
-		else {
-			console.log("a okay!");
-			$('.sun i').addClass('green'); 
-		}
 
 		if(avg > 35000) {
 			return '100%'; 
