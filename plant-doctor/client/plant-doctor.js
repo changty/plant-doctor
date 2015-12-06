@@ -23,6 +23,7 @@ Template.PlantDoctorTemplate.onRendered(function() {
 	});
 
 	$('#btn-close-dialog').click(function() {
+		$('body').removeClass('no-scroll');
 		$('#dialog').removeClass('show');
 	});
 });
@@ -40,7 +41,7 @@ window.showNotification = function(msg) {
 
 	setTimeout(function() {
 		$notification.removeClass('show');
-	}, 5000);
+	}, 4000);
 }
 
 window.showDialog = function(title, msg) {
@@ -50,8 +51,6 @@ window.showDialog = function(title, msg) {
 		.find('.contents > div').html(msg);
 	$dialog.addClass('show');
 }
-
-$()
 
 
 /*
