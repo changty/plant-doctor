@@ -224,6 +224,23 @@ header {
 			font-size: 22px;
 			margin: 10px 0;
 		}
+
+		.plant-icons {
+			top: 0;
+			margin: 0;
+
+			.icon {
+				i {
+					width: 10vmin;
+					height: 10vmin;
+					line-height: 10vmin;
+				}
+
+				&:first-child {
+					margin-left: 0;
+				}
+			}
+		}
 	}
 }
 
@@ -314,4 +331,70 @@ header {
 			transform: translateY(0px);
 		}
 	}
+}
+
+#dialog {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 300;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+
+	&.show {
+		visibility: visible;
+		opacity: 1;
+		transform: translateY(0px);
+	}
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: 310;
+		background: rgba(0,0,0,0.75);
+		width: inherit;
+		height: inherit;
+	}
+
+	#dialog-inner {
+		width: 80%;
+		margin-left: 10%;
+		margin-top: 100px;
+		background: #fff;
+		z-index: 330;
+		position: relative;
+		border-radius: 5px;
+		overflow: hidden;
+
+		.contents {
+			padding: 15px;
+
+			h2 {
+				font-size: 18px;
+				color: #333;
+				font-weight: bold;
+				margin-bottom: 15px;
+			}
+		}
+
+		.buttons {
+			> a {
+				width: 100%;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				background: #43A047;
+				color: #fff;
+				display: block;
+			}
+		}
+	}
+}
+
+body.no-scroll {
+	overflow: hidden;
 }
