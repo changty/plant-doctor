@@ -1,11 +1,10 @@
 
 
 <template name="plant">
-
 	<div class="plant-stats">
 		<div class="luminance">
 			<div class="lummeter">
-				<span class="lumvalue" style="height: {{getGraphLight}}"></span>
+				<span class="lumvalue" style="height: {{getGraphLight}}; filter: saturate({{getGraphLight}});"></span>
 			</div>
 		</div>
 		<div class="temperature">
@@ -25,23 +24,25 @@
 			</div>
 		</div>
 
+	<h2 class="plant-view-plant-name">{{name}}</h2>
+
 		<div class="plant-icons">
 			<div class="icon sun">
-				<i class="fa fa-sun-o"></i>
+				<i class="fa fa-sun-o {{lightStatus}}"></i>
 			</div>
 			<div class="icon watericon">
-				<i class="fa fa-tint"></i>
+				<i class="fa fa-tint {{humidityStatus}}"></i>
 			</div>
 			<div class="icon temp">
-				<i class="fa fa-tachometer"></i>
+				<i class="fa fa-tachometer {{tempStatus}}"></i>
 			</div>
 		</div>
 	</div>
 
-<br/>
+<!-- <br/>
 <br />
 <br/>
-<br/>
+<br/> -->
 <!-- Plant: {{getPlant}}<br /> -->
 <!-- Temperature: {{getTemperature}}<br>
 Humidity: {{getHumidity}}<br>

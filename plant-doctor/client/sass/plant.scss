@@ -100,7 +100,6 @@
 
  .plant-status {
     position: relative;
-    top: 10vmin;
     overflow: hidden;
     display:block;
     margin:auto; 
@@ -157,7 +156,7 @@
 
 .plant-icons {
     position: relative; 
-    top: 15vmin;
+    top: 10vmin;
     display: inline-block; 
     margin-left: 14vmin;
 
@@ -197,6 +196,12 @@
     }
    
 
+}
+.plant-view-plant-name {
+  margin-top: 5vmin !important; 
+}
+.water {
+   margin-top: 10vmin;
 }
 
 @-webkit-keyframes upDown {

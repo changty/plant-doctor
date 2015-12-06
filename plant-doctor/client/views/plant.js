@@ -5,6 +5,9 @@ Template.plant.helpers({
 	specificEngine: function(){
 		return Sensor.find({engine: this.engineId}).fetch();
 	},
+	name : function() {
+		return this.plantData.name;
+	},
 	getUptoDateDataForSpecificEngine: function(){
 		// console.log("uptodate data");
 		var that = this;
@@ -28,9 +31,48 @@ Template.plant.helpers({
 	getGraphHumidity: function(){
 		return getter({engine: this.engineId, sensor: "Humidity"},3) + '%';		
 	},
+	lightStatus: function() {
+		var avg = getter({engine: this.engineId, sensor: "light"},3);		
+		console.log("light avg", avg);
+		
+		if(avg > this.plantData.lightMax || avg < this.plantData.lightMin ) {
+			return 'red'; 
+		}
+		else {
+			return 'green';
+		}
+	},
+	humidityStatus: function() {
+		var avg = getter({engine: this.engineId, sensor: "Humidity"},3);		
+		if(avg > this.plantData.humidityMax || avg < this.plantData.humidityMin ) {
+			return 'red'; 
+		}
+		else {
+			return 'green';
+		}
+	},
+	tempStatus: function() {
+		var avg = getter({engine: this.engineId, sensor: "Temperature"},3);		
+		if(avg > this.plantData.tempMax || avg < this.plantData.tempMin ) {
+			return 'red'; 
+		}
+		else {
+			return 'green';
+		}
+	},
 	getGraphLight: function(){
 		var avg = getter({engine: this.engineId, sensor: "light"},3);		
 		console.log("light avg", avg);
+		
+		if(avg > this.plantData.lightMax || avg < this.plantData.lightMin ) {
+			console.log("red alert");
+			$('.sun i').addClass('red'); 
+		}
+		else {
+			console.log("a okay!");
+			$('.sun i').addClass('green'); 
+		}
+
 		if(avg > 35000) {
 			return '100%'; 
 		}
@@ -66,13 +108,6 @@ Template.plant.helpers({
 		}
 		else {
 			return '0%'; 
-		}
-		console.log(this.plantData);
-		if(avg > this.plantData.lightMax || avg < this.plantData.lightMin ) {
-			$('.sun i').addClass('red'); 
-		}
-		else {
-			$('.sun i').addClass('green'); 
 		}
 
 	},
