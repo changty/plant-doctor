@@ -1,5 +1,5 @@
 if (Meteor.isClient) {
-	Meteor.subscribe('plants');
+	Meteor.subscribe("plants");
 
   // counter starts at 0
   Session.setDefault('counter', 0);
@@ -17,6 +17,10 @@ Template.PlantDoctorTemplate.onRendered(function() {
 		$nav.navigation('close');
 		$nav.removeClass('fs-navigation-open');
 	});
+
+	$('[data-title]').tooltip({
+		// direction: "top"
+	});
 });
 
 Template.PlantDoctorTemplate.helpers({
@@ -24,3 +28,21 @@ Template.PlantDoctorTemplate.helpers({
 		return MyPlant.find({owner: Meteor.userId()}).fetch();
 	}
 });
+
+window.showNotification = function(msg) {
+	var $notification = $('#notification');
+	$notification.addClass('show');
+	$('#notification-contents').html(msg);
+
+	setTimeout(function() {
+		$notification.removeClass('show');
+	}, 5000);
+}
+
+/*
+Template.PlantDoctorTemplate.events({
+	"click [data-title]": function (event) {
+			alert('jo')
+		}
+	});
+}*/

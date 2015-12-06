@@ -6,21 +6,9 @@
 <body>
 </body>
 <template name="PlantDoctorTemplate">
-	<nav id="main-nav" class="fs-navigation fs-navigation-enabled fs-navigation-overlay-left-nav navigation-menu" data-navigation-handle="#btn-mobile-nav" data-navigation-content="#main-content">
-		<h2>My plants</h2>
-		<ul>
-			{{#each myPlants}}
-				<li><a href="">{{name}}</a></li>
-			{{/each}}
-			<li><a href={{pathFor route='addPlant'}} class="add-new">Add a plant</a></li>
-		</ul>
-	</nav>
 
 	<header>
 		<div class="container">
-			{{#if currentUser}}
-			<a id="btn-mobile-nav">Show nav</a>
-			{{/if}}
 			<h1><a href={{pathFor route='home'}}>Plant Doctor</a></h1>
 		</div>
 	</header>
@@ -29,6 +17,10 @@
 		<div class="container">
 			{{> yield}}
 		</div>
+	</div>
+
+	<div id="notification">
+		<div id="notification-contents"></div>
 	</div>
 
 </template>

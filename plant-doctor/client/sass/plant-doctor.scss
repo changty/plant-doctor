@@ -52,13 +52,14 @@ header {
 		a {
 			display: block;
 			color: #43A047;
-			margin: 10px 0 10px 15px;
+			margin: 10px auto 10px auto;
 			font-family: 'Raleway', sans-serif;
 			font-size: 34px;
 			line-height: 40px;
-			display: inline-block;
+			display: block;
 			padding-left: 47px;
 			background: transparent url(/img/logo.png) no-repeat left center;
+			width: 245px;
 
 			&:hover {
 				color: #43A047;
@@ -128,7 +129,7 @@ header {
 }
 
 #main-content {
-	padding: 20px 0;
+	padding: 10px 0;
 
 	h2 {
 		margin: 0 0 20px;
@@ -151,45 +152,166 @@ header {
 		display: none;
 	}
 }
+/*
+#luminance {
+  position: absolute; 
+  left: 5vmin; 
+  top: 60vh; 
+  height: 30px;
+  overflow: hidden;
+  //box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 150;
 
-// #luminance {
-//   position: absolute; 
-//   left: 5vmin; 
-//   top: 60vh; 
-//   height: 30px;
-//   overflow: hidden;
-//   //box-shadow: 0 0 10px rgba(0,0,0,0.5);
-//   z-index: 150;
+  #luminance-inner {
+    background: #43A047; // url(/img/icon-speedometer.png) no-repeat 2px 2px;
+    border-radius: 100%;
+    height: 10vmin;
+    width: 10vmin;
+    position: relative;
+  }
 
-//   #luminance-inner {
-//     background: #43A047; // url(/img/icon-speedometer.png) no-repeat 2px 2px;
-//     border-radius: 100%;
-//     height: 10vmin;
-//     width: 10vmin;
-//     position: relative;
-//   }
+  #measurement-stick {
+    width: 2vmin;
+    height: 8vmin;
+    border-radius: 2px;
+    position: absolute;
+    left: 4px;
+    top: 0;
 
-//   #measurement-stick {
-//     width: 2vmin;
-//     height: 8vmin;
-//     border-radius: 2px;
-//     position: absolute;
-//     left: 4px;
-//     top: 0;
+    @include vendor(transition, transform 0.1s);
 
-//     @include vendor(transition, transform 0.1s);
-
-//     &:before {
-//       width: 3px;
-//       height: 30px;
-//       margin-top: 2px;
-//       background: #fff;
-//       content: '';
-//       display: block;
-//     }
-//   }
-// }
+    &:before {
+      width: 3px;
+      height: 30px;
+      margin-top: 2px;
+      background: #fff;
+      content: '';
+      display: block;
+    }
+  }
+}*/
 
 #main-nav {
 	z-index: 200;
+}
+
+.plant-row {
+	@extend .cf;
+	display: block;
+	padding: 10px;
+	margin: 0 10px 15px;
+	background: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,0.25);
+	border-radius: 5px;
+
+	.plant-img {
+		width: 60px;
+		overflow: hidden;
+		float: left;
+		margin: 0 15px;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.plant-details {
+		margin-left: 100px;
+
+		.plant-name {
+			font-family: 'Raleway', sans-serif;
+			font-size: 22px;
+			margin: 10px 0;
+		}
+	}
+}
+
+.plant-cards {
+	max-width: 400px;
+	margin: 0 auto;
+
+	> p {
+		padding: 0 15px;
+		margin-bottom: 20px;
+		line-height: 1.3;
+		text-align: center;
+	}
+}
+
+.add-new {
+	padding: 0 15px;
+	text-align: right;
+
+	> a {
+		display: inline-block;
+		padding: 5px;
+
+		&:before  {
+			content: '+';
+			padding-right: 5px;
+		}
+	}
+}
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+
+
+#notification {
+	position: fixed;
+	bottom: 20px;
+    bottom: 100px;
+    width: 100%;
+
+	> div {
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+
+		background: #43A047 url(/img/smile.png) no-repeat 10px center;
+		padding: 10px;
+		padding-left: 35px;
+		color: #fff;
+		width: 80%;
+		margin-left: 10%;
+		border-radius: 5px;
+		box-shadow: 0px 5px 5px rgba(0,0,0,0.25);
+
+		transform: translateY(100px);
+	}
+
+	&.show {
+		> div {
+			visibility: visible;
+			opacity: 1;
+			transform: translateY(0px);
+		}
+	}
 }
