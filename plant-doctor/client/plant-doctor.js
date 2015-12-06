@@ -21,6 +21,10 @@ Template.PlantDoctorTemplate.onRendered(function() {
 	$('[data-title]').tooltip({
 		// direction: "top"
 	});
+
+	$('#btn-close-dialog').click(function() {
+		$('#dialog').removeClass('show');
+	});
 });
 
 Template.PlantDoctorTemplate.helpers({
@@ -38,6 +42,22 @@ window.showNotification = function(msg) {
 		$notification.removeClass('show');
 	}, 5000);
 }
+
+window.showDialog = function(title, msg) {
+	$('body').addClass('no-scroll');
+	var $dialog = $('#dialog');
+	$dialog.find('.contents > h2').html(title).end()
+		.find('.contents > div').html(msg);
+	$dialog.addClass('show');
+
+	setTimeout(function() {
+		$dialog.removeClass('show');
+		$('body').removeClass('no-scroll');
+	}, 5000);
+}
+
+$()
+
 
 /*
 Template.PlantDoctorTemplate.events({
