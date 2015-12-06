@@ -39,6 +39,9 @@ Template.addPlant.events({
 			$('.engine').val('');
 			$('.plant-name').val('');
 
+			Router.go('/');
+			showNotification("Your plant has been added");
+
 		}
 
 		else {
