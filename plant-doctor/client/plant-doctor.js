@@ -15,11 +15,6 @@ Template.PlantDoctorTemplate.onRendered(function() {
 		$nav.navigation('close');
 		$nav.removeClass('fs-navigation-open');
 	});
-
-
-	$('body').on('click', '#btn-mobile-nav', function() {
-		$nav.toggleClass('fs-navigation-open');
-	});
 });
 
 Template.PlantDoctorTemplate.helpers({

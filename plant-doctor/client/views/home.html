@@ -9,26 +9,26 @@
 			{{#if moreThanOnePlant }}
 				<ul>
 				{{#each myPlants}}
-					<li><a href="">{{name}}</a></li>
+					<li><a href="/plant/{{engineId}}">{{name}}</a></li>
 				{{/each}}
 				</ul>
-    		{{else}}
-    			<p>you have just one plant, print it here</p>
-    			<div id="luminance">
-    				<div id="luminance-inner">
-    					<div id="measurement-stick" style="transform: rotate({{getLuxDegrees}}deg)"></div>
-    				</div>
-    			</div>
+			{{else}}
+				<p>you have just one plant, print it here</p>
+				<div id="luminance">
+					<div id="luminance-inner">
+						<div id="measurement-stick" style="transform: rotate({{getLuxDegrees}}deg)"></div>
+					</div>
+				</div>
 			{{/if}}
-    	{{else}}
-    		<p>It seems like you don't have any plants yet! Go ahead and add one now.</p>
-    		<div class="template-in-template">
-    			{{ >addPlant}}
-    		</div>
-    	{{/if}}
-    {{else}}
-    	<h2>Welcome!</h2>
+		{{else}}
+			<p>It seems like you don't have any plants yet! Go ahead and add one now.</p>
+			<div class="template-in-template">
+				{{ >addPlant}}
+			</div>
+		{{/if}}
+	{{else}}
+		<h2>Welcome!</h2>
 		{{> loginButtons}}
-    {{/if}}
+	{{/if}}
 
 </template>
