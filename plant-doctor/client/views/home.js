@@ -20,6 +20,7 @@ Template.home.helpers({
 });
 
 
+var dep = new Tracker.Dependency(); 
 Template.plantCard.helpers({
 	getTemperature: function(){
 		return getter({engine: this.engineId, sensor: "Temperature"},3);		
@@ -35,6 +36,82 @@ Template.plantCard.helpers({
 	},
 	getPressure: function(){
 		return getter({engine: this.engineId, sensor: "Pressure"},3);		
+	},
+	plantFace: function() {
+		var engine = this.engineId + ''; 
+		var plant = MyPlant.find({'engineId': engine}).fetch(); 
+		var plantId = plant[0].plantId + ''; 
+		var plantData = Plant.find({'id': plantId}).fetch()[0];
+
+		dep.depend();
+		var img = plantData.img;
+		var format = '.' + img.split(".")[1];
+		img = img.split(".")[0]; 
+
+		// quick and ugly fix
+		img = img.replace("2", "1"); 
+		img = img.replace("3", "1"); 
+
+		var c = $('.plant-row.'+engine).find('.fa.red').length;
+
+		if(c === 0) {
+			return img + "_happy" + format; 
+		} 
+		else if (c === 1) {
+			return img + "_serious" + format; 
+		}
+		else if (c === 2) {
+			return img + "_sad" + format; 
+		}
+		else if (c === 3) {
+			return img + "_xx" + format; 
+		}
+		else {
+			return img + "_happy" + format; 
+
+		}
+		return img;  
+
+	},
+	lightStatus: function() {
+		var engine = this.engineId + ''; 
+		var plant = MyPlant.find({'engineId': engine}).fetch(); 
+		var plantId = plant[0].plantId + ''; 
+		var plantData = Plant.find({'id': plantId}).fetch()[0];
+		var avg = getter({engine: this.engineId, sensor: "light"},3);		
+		console.log("light avg", avg);
+		dep.changed(); 
+		if(avg > plantData.lightMax || avg < plantData.lightMin ) {
+			return 'red'; 
+		} else {
+			return 'green';
+		}
+	},
+	humidityStatus: function() {
+		var engine = this.engineId + ''; 
+		var plant = MyPlant.find({'engineId': engine}).fetch(); 
+		var plantId = plant[0].plantId + ''; 
+		var plantData = Plant.find({'id': plantId}).fetch()[0];
+		var avg = getter({engine: this.engineId, sensor: "Humidity"},3);		
+		dep.changed(); 
+		if(avg > plantData.humidityMax || avg < plantData.humidityMin ) {
+			return 'red'; 
+		} else {
+			return 'green';
+		}
+	},
+	tempStatus: function() {
+		var engine = this.engineId + ''; 
+		var plant = MyPlant.find({'engineId': engine}).fetch(); 
+		var plantId = plant[0].plantId + ''; 
+		var plantData = Plant.find({'id': plantId}).fetch()[0];
+		var avg = getter({engine: this.engineId, sensor: "Temperature"},3);		
+		dep.changed(); 
+		if(avg > plantData.tempMax || avg < plantData.tempMin ) {
+			return 'red'; 
+		} else {
+			return 'green';
+		}
 	}
 });
 

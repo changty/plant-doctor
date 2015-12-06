@@ -30,14 +30,14 @@
 
 <template name="plantCard">
 	<li>
-		<a class="plant-row" href="/plant/{{engineId}}" data-humidity={{getHumidity}} data-lux={{getLight}} data-temperature={{getTemperature}}>
-			<div class="plant-img"><img src="/img/plant1_large_happy.svg" alt="" /></div>
+		<a class="plant-row {{engineId}}" href="/plant/{{engineId}}" data-humidity={{getHumidity}} data-lux={{getLight}} data-temperature={{getTemperature}}>
+			<div class="plant-img"><img src="{{plantFace}}" alt="" /></div>
 			<div class="plant-details">
 				<div class="plant-name">{{name}}</div>
 				<div class="plant-icons">
-					<div class="icon sun"><i class="fa fa-sun-o"></i></div>
-					<div class="icon watericon"><i class="fa fa-tint"></i></div>
-					<div class="icon temp"><i class="fa fa-tachometer"></i></div>
+					<div class="icon sun"><i class="fa fa-sun-o {{lightStatus}}"></i></div>
+					<div class="icon watericon"><i class="fa fa-tint {{humidityStatus}}"></i></div>
+					<div class="icon temp"><i class="fa fa-tachometer {{tempStatus}}"></i></div>
 				</div>
 			</div>
 		</a>

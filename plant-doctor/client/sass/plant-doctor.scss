@@ -32,7 +32,7 @@ a {
 }
 
 .container {
-	max-width: 1200px;
+	max-width: 500px;
 	margin: 0 auto;
 
 	> p {
@@ -233,10 +233,12 @@ header {
 			margin: 0;
 
 			.icon {
+				box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.5);
+
 				i {
-					width: 10vmin;
-					height: 10vmin;
-					line-height: 10vmin;
+					width: 40px;
+					height: 40px;
+					line-height: 40px;
 				}
 
 				&:first-child {
