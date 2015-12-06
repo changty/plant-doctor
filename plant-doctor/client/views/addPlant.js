@@ -45,7 +45,6 @@ Template.addPlant.events({
 			$('.addPlant').addClass('btn-error');
 			setTimeout(function() {
 				$('.addPlant').removeClass('btn-error');
-
 			},1000);
 		}
 	},

@@ -4,22 +4,17 @@
     	<h2>Welcome {{currentUser.username}}!</h2>
 
 		{{#if userHasPlants }}
-			<p>you have plants</p>
-
-			{{#if moreThanOnePlant }}
+			<div class="plant-cards">
+				<p>Here's how your plants are doing today!</p>
 				<ul>
 				{{#each myPlants}}
-					<li><a href="/plant/{{engineId}}">{{name}}</a></li>
+					{{ >plantCard engineId=engineId name=name}}
 				{{/each}}
 				</ul>
-			{{else}}
-				<p>you have just one plant, print it here</p>
-				<div id="luminance">
-					<div id="luminance-inner">
-						<div id="measurement-stick" style="transform: rotate({{getLuxDegrees}}deg)"></div>
-					</div>
+				<div class="add-new">
+					<a href={{pathFor route='addPlant'}}>Add a plant</a>
 				</div>
-			{{/if}}
+			</div>
 		{{else}}
 			<p>It seems like you don't have any plants yet! Go ahead and add one now.</p>
 			<div class="template-in-template">
@@ -31,4 +26,20 @@
 		{{> loginButtons}}
 	{{/if}}
 
+</template>
+
+<template name="plantCard">
+	<li>
+		<a class="plant-row" href="/plant/{{engineId}}">
+			<div class="plant-img"><img src="/img/plant1_large_happy.svg" alt="" /></div>
+			<div class="plant-details">
+				<div class="plant-name">{{name}}</div>
+				<div class="plant-buttons">
+					<div class="light">{{getLight}}</div>
+					<div class="humidity">{{getHumidity}}</div>
+					<div class="temp">{{getTemperature}}</div>
+				</div>
+			</div>
+		</a>
+	</li>
 </template>
