@@ -25,6 +25,30 @@ Template.plant.helpers({
 		// console.log("query is ", query);
 		return query.fetch();
 	},
+	plantFace: function() {
+		var img = this.plantData.img;
+		var format = '.'+img.split(".")[1];
+		img = img.split(".")[0]; 
+
+
+		var count = $('.fa.red').length
+
+		if(count === 0) {
+			return img + "_happy" + format; 
+		} 
+		else if (count === 1) {
+			return img + "_serious" + format; 
+		}
+		else if (count === 2) {
+			return img + "_sad" + format; 
+		}
+		else if (count === 3) {
+			return img + "_xx" + format; 
+		}
+		console.log("plantface: ", img);
+		return img;  
+
+	},
 	getGraphTemperature: function(){
 		return getter({engine: this.engineId, sensor: "Temperature"},3);		
 	},
