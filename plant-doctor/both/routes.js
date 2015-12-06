@@ -23,7 +23,7 @@ Router.route('/plant/:engineId', function() {
 	var plantId = plant[0].plantId + ''; 
 	var plantData = Plant.find({'id': plantId}).fetch()[0];
 
-	this.render('plant', {data : {engineId: this.params.engineId, plantData: data}});	
+	this.render('plant', {'data' : {engineId: this.params.engineId, 'plantData': plantData}});	
 },
 {
 	name: 'plant'
