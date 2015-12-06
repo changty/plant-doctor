@@ -22,8 +22,64 @@ Template.plant.helpers({
 		console.log("query is ", query);
 		return query.fetch();
 	},
-	getTemperature: function(){
+	getGraphTemperature: function(){
 		return getter({engine: this.engineId, sensor: "Temperature"},3);		
+	},
+	getGraphHumidity: function(){
+		return getter({engine: this.engineId, sensor: "Humidity"},3) + '%';		
+	},
+	getGraphLight: function(){
+		var avg = getter({engine: this.engineId, sensor: "light"},3);		
+		console.log("light avg", avg);
+		if(avg > 35000) {
+			return '100%'; 
+		}
+		else if(avg > 25000) {
+			return '95%'; 
+		}
+		else if (avg > 15000) {
+			return '90%'; 
+		}
+		else if(avg > 10000) {
+			return '80%';
+		}
+		else if(avg > 7500) {
+			return '70%';
+		}
+		else if(avg > 5000) {
+			return '60%';
+		}
+		else if(avg > 3000) {
+			return '50%'; 
+		} 
+		else if (avg > 1000) {
+			return '40%'; 
+		}
+		else if (avg > 100) {
+			return  '30%'; 
+		} 
+		else if (avg > 30) {
+			return '10%';
+		}
+		else if(avg <= 0) {
+			return '0%'; 
+		}
+		else {
+			return '0%'; 
+		}
+
+	},
+	getGraphTemperature: function(){
+		var avg = getter({engine: this.engineId, sensor: "Temperature"},3);		
+		if(avg >= 40) {
+			return '100%'; 
+		}
+		else if(avg <= 0) {
+			return '0%';
+		}
+		else {
+			return (1 -((40-avg)/40))*100  + '%';
+		}
 	},
 	getHumidity: function(){
 		return getter({engine: this.engineId, sensor: "Humidity"},3);		
@@ -43,6 +99,7 @@ Template.plant.onRendered(function(){
 });
 
 function getter(json, count){
+	console.log("json", json);
 	var initializing = true;
 	var query;
 	Tracker.autorun(function () {
@@ -63,7 +120,7 @@ function getter(json, count){
 function calculateAverageOf(query, elements){
 	var list = query.fetch();
 	list.sort(function(a,b){return b.ts-a.ts});
-	console.log("length"+list.length);
+	console.log("length ", list.length);
 	if(list.length < 1)
 		return 0;
 						

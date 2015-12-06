@@ -5,20 +5,20 @@
 	<div class="plant-stats">
 		<div class="luminance">
 			<div class="lummeter">
-				<span class="lumvalue"></span>
+				<span class="lumvalue" style="height: {{getGraphLight}}"></span>
 			</div>
 		</div>
 		<div class="temperature">
 			<div class="tempmeter">
-				<span class="value"></span>
+				<span class="value" style="height: {{getGraphTemperature}}"></span>
 			</div>
 		</div>
 		<div class="water">
 			<div class="plant-status">
 
-				<div class="wave-back"></div>
+				<div class="wave-back" style="height: {{getGraphHumidity}}"></div>
 
-				<div class="wave-front"></div>
+				<div class="wave-front" style="height: {{getGraphHumidity}}"></div>
 
 				<img class="plant-face" src="/img/plant1_small_happy.svg" alt="" />
 
@@ -38,12 +38,15 @@
 		</div>
 	</div>
 
-<!-- <br> -->
-<!-- Temperature: {{getTemperature}}<br>
+<br/>
+<br />
+<br/>
+<br/>
+Temperature: {{getTemperature}}<br>
 Humidity: {{getHumidity}}<br>
 Light: {{getLight}}<br>
 Battery: {{getBattery}}<br>
-Air Pressure: {{getPressure}}<br><br> -->
+Air Pressure: {{getPressure}}<br><br>
 <!--     {{#each getUptoDateDataForSpecificEngine}}
        {{engine}},{{sensor}},{{value}}<br>
     {{/each}} -->
