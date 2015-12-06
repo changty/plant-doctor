@@ -367,6 +367,8 @@ header {
 		background: #fff;
 		z-index: 330;
 		position: relative;
+		border-radius: 5px;
+		overflow: hidden;
 
 		.contents {
 			padding: 15px;

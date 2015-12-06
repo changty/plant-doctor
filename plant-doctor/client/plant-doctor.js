@@ -49,11 +49,6 @@ window.showDialog = function(title, msg) {
 	$dialog.find('.contents > h2').html(title).end()
 		.find('.contents > div').html(msg);
 	$dialog.addClass('show');
-
-	setTimeout(function() {
-		$dialog.removeClass('show');
-		$('body').removeClass('no-scroll');
-	}, 5000);
 }
 
 $()
