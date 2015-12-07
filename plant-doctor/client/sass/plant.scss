@@ -133,7 +133,6 @@
         -webkit-animation: scroll 25s linear infinite, upDown 2.5s ease-in-out infinite;
         animation: scroll 25s linear infinite, upDown 2.5s ease-in-out infinite;
         z-index: 50; 
-        border-radius: 100%; 
     }
 
     .wave-back {
@@ -148,10 +147,14 @@
         -webkit-animation: scroll 30s linear infinite, upDown2 2.5s ease-in-out infinite;
         animation: scroll 30s linear infinite, upDown2 2.5s ease-in-out infinite;
         z-index: 1;
-        border-radius: 100%; 
     }
 
 
+ }
+
+ .show-on-top {
+
+  z-index: 280;
  }
 
 .plant-icons {

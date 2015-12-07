@@ -168,7 +168,7 @@ Template.plant.helpers({
 Template.plant.events({
 	'click .icon.sun': function() {
 		var avg = getter({engine: this.engineId, sensor: "light"},3);		
-		showDialog('Sun light', '<h3>At the moment I\'m getting ' + avg +' lux of light</h3><br /> <p>The big books says that my light condition should be ' + this.plantData.light + '</p>');
+		showDialog('Sunlight', '<h3>At the moment I\'m getting ' + avg +' lux of light</h3><br /> <p>The big books says that my light condition should be ' + this.plantData.light + '</p>');
 	},
 	'click .icon.watericon': function() {
 		var avg = getter({engine: this.engineId, sensor: "Humidity"},3);		
@@ -181,6 +181,11 @@ Template.plant.events({
 });
 
 Template.plant.onRendered(function(){
+	console.log('tooltips', $('[data-title]'))
+	$('[data-title]').tooltip({
+		// direction: "top"
+		customClass: "show-on-top"
+	});
 });
 
 function getter(json, count){

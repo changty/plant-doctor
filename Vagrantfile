@@ -33,34 +33,6 @@ curl https://install.meteor.com/ | sh
 # =========================================================
 # export MONGO_URL=mongodb://localhost:27017/plant-doctor
 # =========================================================
-#mkdir -p /home/vagrant/friend/.meteor/local
-#echo “sudo mount --bind /home/vagrant/friend/.meteor/local/ /vagrant/friend/.meteor/local/” >> ~/.bashrc && source ~/.bashrc
-
-
-#echo "===============> Install yo and MEAN stack"
-#sudo npm install -g yo
-#sudo npm install -g generator-meanjs
-
-
-#echo "===============> Install steroids (appgyver)"
-#sudo chown -R `whoami` /usr/local/lib/node_modules
-#[-e ~/.npm] && sudo chown -R `whoami` ~/.npm
-#sudo chown -R `whoami` $NPM_BIN_DIR
-#npm install steroids -g
-#sudo apt-get install -y apache2
-
-#echo "===============> Installing nginx"
-#sudo apt-get install nginx -y
-
-#echo "===============> Configure nginx"
-#echo "Configuring Nginx"
-#cp /var/www/nginx_vhost /etc/nginx/sites-available/nginx_vhost > /dev/null
- 
-#ln -s /etc/nginx/sites-available/nginx_vhost /etc/nginx/sites-enabled/
- 
-#rm -rf /etc/nginx/sites-available/default
- 
-#service nginx restart > /dev/null
 
 SCRIPT
 
@@ -95,7 +67,7 @@ Vagrant.configure(2) do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+#  config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network :forwarded_port, host: 8080, guest: 80
   config.vm.network :forwarded_port, host: 13303, guest: 13303
   config.vm.network :forwarded_port, host: 4567, guest: 4567

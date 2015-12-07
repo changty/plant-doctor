@@ -2,18 +2,18 @@
 
 <template name="plant">
 	<div class="plant-stats">
-		<div class="luminance">
+		<div class="luminance" data-title="How much light your plant is getting" data-tooltip-options='{"direction":"right"}'>
 			<div class="lummeter">
 				<span class="lumvalue" style="height: {{getGraphLight}}; filter: saturate({{getGraphLight}});"></span>
 			</div>
 		</div>
-		<div class="temperature">
+		<div class="temperature" data-title="The temperature for your plant" data-tooltip-options='{"direction":"left"}'>
 			<div class="tempmeter">
 				<span class="value" style="height: {{getGraphTemperature}}"></span>
 			</div>
 		</div>
 		<div class="water">
-			<div class="plant-status">
+			<div class="plant-status" data-title="The moisture in your soil" data-tooltip-options='{"direction":"top"}'>
 
 				<div class="wave-back" style="height: {{getGraphHumidity}}"></div>
 
